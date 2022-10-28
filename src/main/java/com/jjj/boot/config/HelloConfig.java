@@ -3,6 +3,8 @@ package com.jjj.boot.config;
 import com.jjj.boot.pojo.Customer;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
+
+
 /**
  * @className: com.jjj.boot.controller.config.HelloConfig
  * @description:
