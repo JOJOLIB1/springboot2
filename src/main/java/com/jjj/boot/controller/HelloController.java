@@ -1,9 +1,12 @@
 package com.jjj.boot.controller;
 
 import com.jjj.boot.pojo.Customer;
+import com.jjj.boot.pojo.Person;
+import com.jjj.boot.pojo.Pet;
 import com.jjj.boot.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -16,12 +19,20 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
     @Autowired
     User user;
-
     @Autowired
     Customer customer;
+    @Autowired
+    Pet pet;
+    @Autowired
+    Person person;
 
     @RequestMapping("/hello")
-    public String toHello() {
-        return "Hello SpringBoot2!" + user + customer;
+    public String toHello(@RequestParam("name") String name) {
+        return "Hello SpringBoot2!" + user + customer + name + "==";
+    }
+
+    @RequestMapping("/testYaml")
+    public String testYaml() {
+        return person + "" + pet ;
     }
 }

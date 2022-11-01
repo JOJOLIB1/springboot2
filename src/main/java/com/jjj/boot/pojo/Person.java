@@ -2,13 +2,11 @@ package com.jjj.boot.pojo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @className: com.jjj.boot.pojo.Person
@@ -19,6 +17,7 @@ import java.util.Set;
 @Data
 @Component
 @AllArgsConstructor
+@NoArgsConstructor
 @ConfigurationProperties(prefix = "person")
 public class Person {
 

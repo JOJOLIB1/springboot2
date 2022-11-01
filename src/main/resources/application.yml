@@ -1,1 +1,32 @@
-
+person:
+  user-name: 张三
+  age: 20
+  birth: 2022/10/3
+  boss: false
+  pet:
+    name: 阿毛
+    weight: 100.1
+  interests:
+    - 唱
+    - 跳
+    - rap
+    - 篮球
+  animal: [阿毛, '阿狗\n 啊', "阿猫\n a"]
+  score:
+    chinese: 100
+    math: 100
+    english: 100
+  salarys:
+    - 1000
+    - 2000
+  all-pets:
+    sick:
+      - name: 阿猫
+        weight: 100
+      - name: 阿狗
+        weight : 200
+    health: [{name: 猫,weight: 100}, {name: 狗, weight: 300}]
+spring:
+  mvc:
+    content negotiation:
+      favor-parameter: true
