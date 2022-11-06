@@ -1,6 +1,7 @@
 package com.jjj.boot.config;
 
 import com.jjj.boot.JJJMessageConverter;
+import com.jjj.boot.interceptor.DefaultInterceptor;
 import com.jjj.boot.pojo.Pet;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
@@ -15,6 +16,7 @@ import org.springframework.web.accept.HeaderContentNegotiationStrategy;
 import org.springframework.web.accept.ParameterContentNegotiationStrategy;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.util.UrlPathHelper;
@@ -71,7 +73,12 @@ public class WebConfigure {
                 });
             }
 
-
+            @Override
+            public void addInterceptors(InterceptorRegistry registry) {
+                registry.addInterceptor(new DefaultInterceptor())
+                        .addPathPatterns("/**")
+                        .excludePathPatterns("/esc/**");
+            }
         };
 
     }
