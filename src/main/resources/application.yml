@@ -34,3 +34,21 @@ spring:
     multipart:
       max-file-size: 10MB
       max-request-size: 20MB
+  datasource:
+    url: jdbc:mysql://43.142.25.180:8080/dep_db
+    username: root
+    password: Hello_world_123!!~~~
+    druid:
+      filters: stat,wall
+      web-stat-filter:
+        enabled: true
+        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+        url-pattern: /*
+      stat-view-servlet:
+        login-username: username
+        login-password: password
+        enabled: true
+      aop-patterns: com.jjj.boot
+      filter:
+        stat:
+          enabled: true
