@@ -1,31 +1,31 @@
-person:
-  user-name: 张三
-  age: 20
-  birth: 2022/10/3
-  boss: false
-  pet:
-    name: 阿毛
-    weight: 100.1
-  interests:
-    - 唱
-    - 跳
-    - rap
-    - 篮球
-  animal: [阿毛, '阿狗\n 啊', "阿猫\n a"]
-  score:
-    chinese: 100
-    math: 100
-    english: 100
-  salarys:
-    - 1000
-    - 2000
-  all-pets:
-    sick:
-      - name: 阿猫
-        weight: 100
-      - name: 阿狗
-        weight : 200
-    health: [{name: 猫,weight: 100}, {name: 狗, weight: 300}]
+#person:
+#  user-name: 张三
+#  age: 20
+#  birth: 2022/10/3
+#  boss: false
+#  pet:
+#    name: 阿毛
+#    weight: 100.1
+#  interests:
+#    - 唱
+#    - 跳
+#    - rap
+#    - 篮球
+#  animal: [阿毛, '阿狗\n 啊', "阿猫\n a"]
+#  score:
+#    chinese: 100
+#    math: 100
+#    english: 100
+#  salarys:
+#    - 1000
+#    - 2000
+#  all-pets:
+#    sick:
+#      - name: 阿猫
+#        weight: 100
+#      - name: 阿狗
+#        weight : 200
+#    health: [{name: 猫,weight: 100}, {name: 狗, weight: 300}]
 spring:
   mvc:
     content negotiation:
@@ -35,7 +35,7 @@ spring:
       max-file-size: 10MB
       max-request-size: 20MB
   datasource:
-    url: jdbc:mysql://43.142.25.180:8080/dep_db
+    url: jdbc:mysql://43.142.25.180:3306/dep_db
     username: root
     password: Hello_world_123!!~~~
     druid:
@@ -52,3 +52,11 @@ spring:
       filter:
         stat:
           enabled: true
+  redis:
+    host: 43.142.25.180
+    port: 6379
+    client-type: JEDIS
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  type-aliases-package: com.jjj.boot.pojo

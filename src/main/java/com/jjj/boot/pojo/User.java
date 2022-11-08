@@ -19,8 +19,8 @@ import org.springframework.stereotype.Component;
 @ToString
 @EqualsAndHashCode
 public class User {
-    private String uid;
-    private String uname;
-    private Customer customer;
+    private String id;
+    private String username;
+    private String userpwd;
 
 }

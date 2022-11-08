@@ -4,10 +4,9 @@ import com.jjj.boot.pojo.Customer;
 import com.jjj.boot.pojo.Person;
 import com.jjj.boot.pojo.Pet;
 import com.jjj.boot.pojo.User;
+import com.jjj.boot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @className: com.jjj.boot.controller.HelloController
@@ -26,6 +25,9 @@ public class HelloController {
     @Autowired
     Person person;
 
+    @Autowired
+    UserService userService;
+
     @RequestMapping("/hello")
     public String toHello(@RequestParam("name") String name) {
         return "Hello SpringBoot2!" + user + customer + name + "==";
@@ -34,5 +36,14 @@ public class HelloController {
     @RequestMapping("/testYaml")
     public String testYaml() {
         return person + "" + pet ;
+    }
+
+    @GetMapping("/select")
+    public Object select() {
+        return userService.queryAllUser();
+    }
+    @GetMapping("/selectOne")
+    public Object selectOne() {
+        return userService.queryOne();
     }
 }

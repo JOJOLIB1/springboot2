@@ -2,8 +2,10 @@ package com.jjj.boot.config;
 
 import com.jjj.boot.JJJMessageConverter;
 import com.jjj.boot.interceptor.DefaultInterceptor;
+import com.jjj.boot.interceptor.ViewInterceptor;
 import com.jjj.boot.pojo.Pet;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.web.servlet.WebMvcRegistrations;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,6 +18,7 @@ import org.springframework.web.accept.ContentNegotiationStrategy;
 import org.springframework.web.accept.HeaderContentNegotiationStrategy;
 import org.springframework.web.accept.ParameterContentNegotiationStrategy;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
+import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 import org.springframework.web.util.UrlPathHelper;
@@ -43,6 +46,8 @@ public class WebConfigure {
             }
         };
     }*/
+    @Autowired
+    ViewInterceptor viewInterceptor;
 
     @Bean
     public WebMvcConfigurer webMvcConfigurer() {
@@ -88,6 +93,8 @@ public class WebConfigure {
                 registry.addInterceptor(new DefaultInterceptor())
                         .addPathPatterns("/**")
                         .excludePathPatterns("/esc/**");
+                registry.addInterceptor(viewInterceptor)
+                        .addPathPatterns("/**");
             }
         };
 
