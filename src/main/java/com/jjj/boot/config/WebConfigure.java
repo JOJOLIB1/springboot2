@@ -1,15 +1,17 @@
 package com.jjj.boot.config;
 
+
 import com.jjj.boot.JJJMessageConverter;
 import com.jjj.boot.interceptor.DefaultInterceptor;
 import com.jjj.boot.interceptor.ViewInterceptor;
 import com.jjj.boot.pojo.Pet;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.web.servlet.WebMvcRegistrations;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -35,6 +37,7 @@ import java.util.List;
  * @create: 2022-10-30 22:19
  */
 @Configuration
+@Profile("default")
 //@EnableWebMvc
 public class WebConfigure {
     /*@Bean
@@ -48,6 +51,10 @@ public class WebConfigure {
     }*/
     @Autowired
     ViewInterceptor viewInterceptor;
+    @Autowired
+    com.hello.service.HelloService helloService;
+
+
 
     @Bean
     public WebMvcConfigurer webMvcConfigurer() {

@@ -56,7 +56,34 @@ spring:
     host: 43.142.25.180
     port: 6379
     client-type: JEDIS
+  boot:
+    admin:
+      client:
+        url: http://localhost:8888
+        instance:
+          prefer-ip: true
+          service-base-url: http://localhost:8080
+  profiles:
+    active: g1
+    group:
+      g1: [dog,cat]
+
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
   type-aliases-package: com.jjj.boot.pojo
+management:
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include: '*'
+
+info:
+  app-name: springboot2
+  version: 2.7.5
+  maven-project: @project.artifactId@
+  maven-version: @project.version@
+
+
+

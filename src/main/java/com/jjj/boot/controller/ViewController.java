@@ -1,6 +1,8 @@
 package com.jjj.boot.controller;
 
 import com.jjj.boot.exception.MyException;
+import com.jjj.boot.pojo.Pet;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +17,8 @@ import org.springframework.web.multipart.MultipartFile;
  */
 @Controller
 public class ViewController {
+    @Autowired
+    Pet pet;
     @RequestMapping("/page01")
     public String toPageOne(Model model) {
         model.addAttribute("abc", "请求域中的值");
@@ -37,5 +41,11 @@ public class ViewController {
     public String error(@RequestParam("key") String key) throws MyException {
 //        int a = 10 / 0;
         throw new MyException();
+    }
+
+    @GetMapping("/pet")
+    @ResponseBody
+    public Pet getPet() {
+        return pet;
     }
 }

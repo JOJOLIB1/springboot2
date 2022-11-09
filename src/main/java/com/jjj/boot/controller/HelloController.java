@@ -1,5 +1,6 @@
 package com.jjj.boot.controller;
 
+import com.hello.service.HelloService;
 import com.jjj.boot.pojo.Customer;
 import com.jjj.boot.pojo.Person;
 import com.jjj.boot.pojo.Pet;
@@ -26,6 +27,9 @@ public class HelloController {
     Person person;
 
     @Autowired
+    HelloService helloService;
+
+    @Autowired
     UserService userService;
 
     @RequestMapping("/hello")
@@ -45,5 +49,10 @@ public class HelloController {
     @GetMapping("/selectOne")
     public Object selectOne() {
         return userService.queryOne();
+    }
+
+    @GetMapping("/sayHello")
+    public Object say() {
+        return helloService.sayHello();
     }
 }

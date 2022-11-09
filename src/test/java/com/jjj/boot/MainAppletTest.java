@@ -1,6 +1,7 @@
 package com.jjj.boot;
 
 
+import com.jjj.boot.endponit.MyMetrics;
 import com.jjj.boot.mapper.UserMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +22,16 @@ import java.sql.SQLException;
 public class MainAppletTest {
     @Autowired
     DataSource dataSource;
+    @Autowired
+    MyMetrics myMetrics;
 
     @Test
     public void testDataSource() throws SQLException {
         System.out.println(dataSource);
+    }
+
+    @Test
+    public void testMyMetrics() {
+        myMetrics.hello();
     }
 }

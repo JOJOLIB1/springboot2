@@ -15,7 +15,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 @SpringBootApplication
 public class MainApplet {
     public static void main(String[] args) {
-        ConfigurableApplicationContext ioc = SpringApplication.run(MainApplet.class);
+        ConfigurableApplicationContext ioc = SpringApplication.run(MainApplet.class, args);
         for (String bean : ioc.getBeanDefinitionNames()) {
             System.out.println(bean);
         }

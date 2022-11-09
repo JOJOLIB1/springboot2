@@ -16,7 +16,8 @@ import org.springframework.context.annotation.Configuration;
 //@ImportResource("classpath:bean.xml")
 //@ConditionalOnBean(name = "customer")
 @EnableConfigurationProperties(Customer.class)
-public class HelloConfig {
+public class
+HelloConfig {
 /*    @Bean
     public User user0() {
         return new User("zs", "张三", customer());
